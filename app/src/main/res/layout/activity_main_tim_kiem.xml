@@ -11,6 +11,8 @@
     
   
   <EditText
+      android:layout_margin="5dp"
+      android:textColorHint="#040404"
       android:id="@+id/timkiem"
       android:hint="search"
       android:layout_width="match_parent"
@@ -18,6 +20,7 @@
 
   </EditText>
   <ListView
+      android:background="#F8E792"
       android:id="@+id/listviewTimKiem"
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
