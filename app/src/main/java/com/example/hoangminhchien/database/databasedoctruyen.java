@@ -1215,7 +1215,12 @@ public class databasedoctruyen extends SQLiteOpenHelper {
         return res;
     }
 
-
+    // lấy tất cả truyện
+    public Cursor getData2(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " +TABLE_TRUYEN,null);
+        return res;
+    }
 
 
 
