@@ -27,16 +27,19 @@ public class adaptertruyen extends BaseAdapter {
 
     @Override
     public int getCount() {
+
         return listTruyen.size();
     }
 
     @Override
     public Object getItem(int position) {
+
         return listTruyen.get(position);
     }
 
     @Override
     public long getItemId(int position) {
+
         return position;
     }
 
@@ -45,19 +48,19 @@ public class adaptertruyen extends BaseAdapter {
         ImageView imgtruyen;
     }
     @Override
-    public View getView(int position, View convertVIew, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder viewHolder = null;
         viewHolder = new ViewHolder();
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        convertVIew = inflater.inflate(R.layout.newtruyen,null);
-        viewHolder.txtTenTruyen=convertVIew.findViewById(R.id.textviewTentruyenNew);
-        viewHolder.imgtruyen=convertVIew.findViewById(R.id.imgNewTruyen);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.newtruyen,null);
+        viewHolder.txtTenTruyen=convertView.findViewById(R.id.textviewTentruyenNew);
+        viewHolder.imgtruyen=convertView.findViewById(R.id.imgNewTruyen);
 
         Truyen truyen = (Truyen) getItem(position);
         viewHolder.txtTenTruyen.setText(truyen.getTenTruyen());
         Picasso.get().load(truyen.getAnh()).placeholder(R.drawable.ic_load).error(R.drawable.ic_image).into(viewHolder.imgtruyen);
-        return convertVIew;
+        return convertView;
 
     }
 }

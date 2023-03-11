@@ -23,10 +23,12 @@ public class Truyen {
     }
 
     public int getID() {
+
         return ID;
     }
 
     public void setID(int ID) {
+
         this.ID = ID;
     }
 
@@ -35,6 +37,7 @@ public class Truyen {
     }
 
     public void setTenTruyen(String tenTruyen) {
+
         TenTruyen = tenTruyen;
     }
 

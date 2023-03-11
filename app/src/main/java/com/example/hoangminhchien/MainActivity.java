@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     String email;
     String tentaikhoan;
 
-    ArrayList<Truyen>  TruyenArraylist;
+    ArrayList<Truyen> TruyenArraylist;
     adaptertruyen adaptertruyen;
     ArrayList<chuyenmuc> chuyenmucArrayList;
     ArrayList<TaiKhoan> taiKhoanArrayList;
@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
         ActionViewFlipper();
 
+
+        // bắt sự kiện clikc item
+
         listViewNew.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -95,16 +98,29 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // đăng bài
                 if (position == 0) {
                     if (i == 2) {
+                        Intent intent= new Intent(MainActivity.this,MainAdmin.class);
+                        startActivity(intent);
 
                     } else {
                         Toast.makeText(MainActivity.this, "Bạn chưa được cấp quyền", Toast.LENGTH_SHORT).show();
                         Log.e("Đăng bài :", " Bạn chưa được cấp quyền");
 
                     }
+
+                    // nếu vị trí ấn vào là thông tin thì sẽ chuyển sang màn thông tin app
                 } else if (position == 1) {
-                } else if (position == 2) {
+
+                    Intent intent = new Intent(MainActivity.this,MainThongTin.class);
+                    startActivity(intent);
+
+                }
+
+                // dăng xuất
+                else if (position == 2) {
                     finish();
                 }
             }
@@ -123,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
@@ -177,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerlayout);
 
         TruyenArraylist = new ArrayList<>();
-        Cursor cursor1 = databasedoctruyen.getData();
+        Cursor cursor1 = databasedoctruyen.getData1();
         while (cursor1.moveToNext()){
             int id = cursor1.getInt(0);
             String tentruyen = cursor1.getString(1);
